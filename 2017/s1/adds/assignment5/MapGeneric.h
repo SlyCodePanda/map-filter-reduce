@@ -4,11 +4,9 @@
 #include <stdio.h>      /* printf */
 #include <stdlib.h>     /* abs */
 
-using namespace std;
-
 class MapGeneric
 {
-	private:
+	protected:
 		virtual int f( int n );
 
 	public:
@@ -21,8 +19,7 @@ class MapGeneric
 class MapTriple : public MapGeneric
 {
 	private:
-		int f( int n )
-			{ return n*3; } 
+		int f( int n );
 
 	public:
 		MapTriple();
@@ -32,8 +29,7 @@ class MapTriple : public MapGeneric
 class MapSquare : public MapGeneric
 {
 	private:
-		int f( int n )
-			{ return n^2 }
+		int f( int n );
 
 	public:
 		MapSquare();
@@ -43,6 +39,10 @@ class MapSquare : public MapGeneric
 class MapAbsoluteValue : public MapGeneric
 {
 	private:
-		int f ( int n ) = abs(n); // NEED TO PUT ALL THE INDIVIDUAL CASSES OF INT F INTO CPP FILE RATHER THAN IN HEADER.
+		int f ( int n );
+
+	public:
+		MapAbsoluteValue();
+		~MapAbsoluteValue();
 
 };

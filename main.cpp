@@ -106,7 +106,7 @@ int main()
 	}
 	std::cout << std::endl;
 
-// Printing out the vec when filtered with FilterNonPositive.
+	// Printing out the vec when filtered with FilterNonPositive.
 	std::cout << "Filter Non Positive: " << std::endl;
 	std::vector<int> filterNonPositive = ptrFilterNP->filter( vec );
 
@@ -116,7 +116,7 @@ int main()
 	}
 	std::cout << std::endl;
 
-	// Printing out the vec when filtered with FilterNonPositive.
+	// Printing out the vec when filtered with FilterForTwoDigitPositive.
 	std::cout << "Filter For Two Digit Positive: " << std::endl;
 	std::vector<int> filterFor2D = ptrFilter2D->filter( vec );
 

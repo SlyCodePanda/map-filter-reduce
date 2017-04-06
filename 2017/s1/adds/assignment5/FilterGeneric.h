@@ -30,3 +30,15 @@ class FilterOdd : public FilterGeneric
 		~FilterOdd();
 
 };
+
+class FilterNonPositive : public FilterGeneric
+{
+
+	private:
+		bool g( int n );
+
+	public:
+		FilterNonPositive();
+		~FilterNonPositive();
+
+};

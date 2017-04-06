@@ -38,6 +38,10 @@ int main()
 	FilterOdd filterO;
 	FilterOdd *ptrFilterO = &filterO;
 
+	// Creates a pointer of the type FilterNonPositive.
+	FilterNonPositive filterNP;
+	FilterNonPositive *ptrFilterNP = &filterNP;
+
 	// Printing out the Generic Map vector.
 	std::cout << "Generic Map: " << std::endl;
 	std::vector<int> genericVector = ptrMapG->map( vec );
@@ -93,6 +97,16 @@ int main()
 	std::vector<int> filterOdd = ptrFilterO->filter( vec );
 
 	for (std::vector<int>::const_iterator i = filterOdd.begin(); i != filterOdd.end(); ++i)
+    {
+    	std::cout << *i << ' ';
+	}
+	std::cout << std::endl;
+
+// Printing out the vec when filtered with FilterNonPositive.
+	std::cout << "Filter Non Positive: " << std::endl;
+	std::vector<int> filterNonPositive = ptrFilterNP->filter( vec );
+
+	for (std::vector<int>::const_iterator i = filterNonPositive.begin(); i != filterNonPositive.end(); ++i)
     {
     	std::cout << *i << ' ';
 	}

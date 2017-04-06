@@ -36,7 +36,7 @@ std::vector<int> FilterGeneric::filter( std::vector<int> vec )
 		i++;
 		map( n );
 	}
-*/
+*/	
 	for( i = 0; i < vec.size()-1; i++ )
 	{
 		if( g( vec.at(i) ) == true )
@@ -59,7 +59,7 @@ FilterOdd::FilterOdd()
 
 }
 
-// Filters the list to only return odd numbers found in said list.
+// Filters the list so only return odd numbers found in said list.
 bool FilterOdd::g( int n )
 {
 	if( n % 2 == 0 )
@@ -74,6 +74,31 @@ bool FilterOdd::g( int n )
 
 // FilterOdd class destructor.
 FilterOdd::~FilterOdd()
+{
+
+}
+
+// FilterNonPositive class constructor.
+FilterNonPositive::FilterNonPositive()
+{
+
+}
+
+// Filters the list so only negative numbers from said list are returned.
+bool FilterNonPositive::g( int n )
+{
+	if( n > 0 )
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+// FilterNonPositive class destructor.
+FilterNonPositive::~FilterNonPositive()
 {
 
 }

@@ -42,3 +42,15 @@ class FilterNonPositive : public FilterGeneric
 		~FilterNonPositive();
 
 };
+
+class FilterForTwoDigitPositive : public FilterGeneric
+{
+
+	private:
+		bool g( int n );
+
+	public:
+		FilterForTwoDigitPositive();
+		~FilterForTwoDigitPositive();
+
+};

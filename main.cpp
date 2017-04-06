@@ -5,12 +5,14 @@
 #include <stdlib.h>     /* abs */
 
 #include "MapGeneric.h"
+#include "FilterGeneric.h"
 
 int main()
 {
 
 	// A vector with 20 ints assigned the value of 5.
-	std::vector<int> vec( 20, 5 );
+	std::vector<int> vec;
+	vec = { 1, 2, 3, 4, 5, -1, -2 };
 
 	// Creates a pointer of the type MapGeneric.
 	MapGeneric mapG;
@@ -28,6 +30,13 @@ int main()
 	MapAbsoluteValue mapA;
 	MapAbsoluteValue *ptrMapA = &mapA;
 
+	// Creates a pointer of the type FilterGeneric.
+	FilterGeneric filterG;
+	FilterGeneric *ptrFilterG = &filterG;
+
+	// Creates a pointer of the type FilterOdd.
+	FilterOdd filterO;
+	FilterOdd *ptrFilterO = &filterO;
 
 	// Printing out the Generic Map vector.
 	std::cout << "Generic Map: " << std::endl;
@@ -69,6 +78,25 @@ int main()
 	}
 	std::cout << std::endl;
 
+	// Printing out the vec when filtered with FilterGeneric.
+	std::cout << "Filter Generic: " << std::endl;
+	std::vector<int> filterGeneric = ptrFilterG->filter( vec );
+
+	for (std::vector<int>::const_iterator i = filterGeneric.begin(); i != filterGeneric.end(); ++i)
+    {
+    	std::cout << *i << ' ';
+	}
+	std::cout << std::endl;
+
+	// Printing out the vec when filtered with FilterOdd.
+	std::cout << "Filter Odd: " << std::endl;
+	std::vector<int> filterOdd = ptrFilterO->filter( vec );
+
+	for (std::vector<int>::const_iterator i = filterOdd.begin(); i != filterOdd.end(); ++i)
+    {
+    	std::cout << *i << ' ';
+	}
+	std::cout << std::endl;
 
 	return 0;
 

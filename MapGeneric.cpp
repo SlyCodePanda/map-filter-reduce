@@ -39,7 +39,7 @@ std::vector<int> MapGeneric::map( std::vector<int> vec )
 		map( n );
 	}
 */
-	for( i = 0; i < vec.size()-1; i++ )
+	for( i = 0; i < vec.size(); i++ )
 	{
 		newVec.push_back( f(vec.at(i)) );
 	}

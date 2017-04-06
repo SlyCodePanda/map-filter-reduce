@@ -12,7 +12,7 @@ int main()
 
 	// A vector with 20 ints assigned the value of 5.
 	std::vector<int> vec;
-	vec = { 1, 2, 3, 4, 5, -1, -2 };
+	vec = { 1, 2, 3, 4, 5, -1, -2, 33, 44 };
 
 	// Creates a pointer of the type MapGeneric.
 	MapGeneric mapG;
@@ -41,6 +41,10 @@ int main()
 	// Creates a pointer of the type FilterNonPositive.
 	FilterNonPositive filterNP;
 	FilterNonPositive *ptrFilterNP = &filterNP;
+
+	// Creates a pointer of the type FilterForTwoDigitPositive.
+	FilterForTwoDigitPositive filter2D;
+	FilterForTwoDigitPositive *ptrFilter2D = &filter2D;
 
 	// Printing out the Generic Map vector.
 	std::cout << "Generic Map: " << std::endl;
@@ -107,6 +111,16 @@ int main()
 	std::vector<int> filterNonPositive = ptrFilterNP->filter( vec );
 
 	for (std::vector<int>::const_iterator i = filterNonPositive.begin(); i != filterNonPositive.end(); ++i)
+    {
+    	std::cout << *i << ' ';
+	}
+	std::cout << std::endl;
+
+	// Printing out the vec when filtered with FilterNonPositive.
+	std::cout << "Filter For Two Digit Positive: " << std::endl;
+	std::vector<int> filterFor2D = ptrFilter2D->filter( vec );
+
+	for (std::vector<int>::const_iterator i = filterFor2D.begin(); i != filterFor2D.end(); ++i)
     {
     	std::cout << *i << ' ';
 	}

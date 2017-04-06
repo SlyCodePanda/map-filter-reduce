@@ -37,7 +37,7 @@ std::vector<int> FilterGeneric::filter( std::vector<int> vec )
 		map( n );
 	}
 */	
-	for( i = 0; i < vec.size()-1; i++ )
+	for( i = 0; i < vec.size(); i++ )
 	{
 		if( g( vec.at(i) ) == true )
 		{
@@ -99,6 +99,31 @@ bool FilterNonPositive::g( int n )
 
 // FilterNonPositive class destructor.
 FilterNonPositive::~FilterNonPositive()
+{
+
+}
+
+// FilterForTwoDigitPositive class constructor.
+FilterForTwoDigitPositive::FilterForTwoDigitPositive()
+{
+
+}
+
+// Filters the list so only numbers with two digits and are positive are returned.
+bool FilterForTwoDigitPositive::g( int n )
+{
+	if( n > 9 && n < 99 )
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+// FilterForTwoDigitPositive class destructor.
+FilterForTwoDigitPositive::~FilterForTwoDigitPositive()
 {
 
 }

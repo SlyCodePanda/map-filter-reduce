@@ -6,13 +6,18 @@
 
 #include "MapGeneric.h"
 #include "FilterGeneric.h"
+#include "ReduceGeneric.h"
 
 int main()
 {
 
-	// A vector with 20 ints assigned the value of 5.
+	// A vector with 9 ints.
 	std::vector<int> vec;
 	vec = { 1, 2, 3, 4, 5, -1, -2, 33, 44 };
+
+	// New vector that is passed for the ReduceGeneric class and derived clases.
+	std::vector<int> newVec(1);
+
 
 	// Creates a pointer of the type MapGeneric.
 	MapGeneric mapG;
@@ -45,6 +50,14 @@ int main()
 	// Creates a pointer of the type FilterForTwoDigitPositive.
 	FilterForTwoDigitPositive filter2D;
 	FilterForTwoDigitPositive *ptrFilter2D = &filter2D;
+
+	// Creates a pointer of the type ReduceGeneric.
+	ReduceGeneric reduceG;
+	ReduceGeneric *ptrReduceG = &reduceG;
+
+	// Creates a pointer of the type ReduceMinimum.
+	ReduceMinimum reduceM;
+	ReduceMinimum *ptrReduceM = &reduceM;
 
 	// Printing out the Generic Map vector.
 	std::cout << "Generic Map: " << std::endl;
@@ -126,6 +139,11 @@ int main()
 	}
 	std::cout << std::endl;
 
+	// Printing out the vec when reduced with ReduceMinimum.
+	std::cout << "Reduce Minimum: " << std::endl;
+	std::vector<int> reduceMin = ptrReduceM->reduce( vec, newVec );
+
+	std::cout << reduceMin[0] << std::endl;
 	return 0;
 
 };

@@ -43,7 +43,7 @@ std::vector<int>ReduceGeneric::reduce( std::vector<int> vec, std::vector<int> ne
 		newVec[0] = returned;
 
 		vec.erase(vec.begin()+0);
-		reduce( vec, newVec );		
+		return reduce( vec, newVec );		
 	}
 
 	else if ( newVec[0] < returned && newVec[0] != 0 )
@@ -51,7 +51,7 @@ std::vector<int>ReduceGeneric::reduce( std::vector<int> vec, std::vector<int> ne
 		newVec[0] = newVec[0];
 
 		vec.erase(vec.begin()+0);
-		reduce( vec, newVec );
+		return reduce( vec, newVec );
 	}
 
 	else if ( newVec[0] == 0 )
@@ -61,7 +61,7 @@ std::vector<int>ReduceGeneric::reduce( std::vector<int> vec, std::vector<int> ne
 		std::cout << "newVec now equals " << newVec[0] << std::endl;
 
 		vec.erase(vec.begin()+0);
-		reduce( vec, newVec );
+		return reduce( vec, newVec );
 	}
 	else
 	{

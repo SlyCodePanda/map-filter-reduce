@@ -20,7 +20,7 @@ int main()
 	// Takes input from user of 20 integers that then inputs them into a vector of ints.
 	std::cin >> input;
 
-	while ( ( std::cin >> input ) && vec.size() <= 20 )
+	while ( ( std::cin >> input ) && vec.size() < 18 )
 	{
 		vec.push_back( input );
 	}

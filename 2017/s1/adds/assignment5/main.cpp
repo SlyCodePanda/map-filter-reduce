@@ -11,9 +11,9 @@
 int main()
 {
 
-	// A vector with 9 ints.
+	// A vector with 20 ints.
 	std::vector<int> vec;
-	vec = { 1, 2, 3, 4, 5, -1, -2, 33, 44 };
+	vec = { 6, -11, 53, -16, 73, 128, 105, 104, -71, -179, 102, 12, 21, -145, -99, 199, -156, -186, 43, -189 };
 
 	// New vector that is passed for the ReduceGeneric class and derived clases.
 	std::vector<int> newVec(1);
@@ -63,96 +63,31 @@ int main()
 	ReduceGCD reduceGCD;
 	ReduceGCD *ptrReduceGCD = &reduceGCD;
 
-	// Printing out the Generic Map vector.
-	std::cout << "Generic Map: " << std::endl;
-	std::vector<int> genericVector = ptrMapG->map( vec );
-
-	for (std::vector<int>::const_iterator i = genericVector.begin(); i != genericVector.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
-
-	// Printing out the vec when mapped with mapTriple.
-	std::cout << "Triple Map: " << std::endl;
+	// Converting the original list to L' = [3|x1|, 3|x2|, ..., 3|xn|] using map.
+	//std::cout << "Triple Map: " << std::endl;
 	std::vector<int> tripleVector = ptrMapT->map( vec );
 
-	for (std::vector<int>::const_iterator i = tripleVector.begin(); i != tripleVector.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
+	//std::cout << "Map Absolute: " << std::endl;
+	std::vector<int> absoluteVector = ptrMapA->map( tripleVector );
 
-	// Printing out the vec when mapped with mapSquare.
-	std::cout << "Map Squared: " << std::endl;
-	std::vector<int> squaredVector = ptrMapS->map( vec );
+	// From L', selects all the positive two digit integers that are also odd by using filter. Resulting in L".
+	//std::cout << "Filter Odd: " << std::endl;
+	std::vector<int> filterOdd = ptrFilterO->filter( absoluteVector );
 
-	for (std::vector<int>::const_iterator i = squaredVector.begin(); i != squaredVector.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
+	//std::cout << "Filter For Two Digit Positive: " << std::endl;
+	std::vector<int> filterFor2D = ptrFilter2D->filter( filterOdd );
 
-	// Printing out the vec when mapped with mapAbsoluteValue.
-	std::cout << "Map Absolute: " << std::endl;
-	std::vector<int> absoluteVector = ptrMapA->map( vec );
+	// Computes the minimum value and the GCD of L" using reduce. Outputting the results, seperated by space.
+	//std::cout << "Reduce Minimum: " << std::endl;
+	std::vector<int> reduceMin = ptrReduceM->reduce( filterFor2D, newVec );
 
-	for (std::vector<int>::const_iterator i = absoluteVector.begin(); i != absoluteVector.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
+	// OUTPUT 1:
+	std::cout << reduceMin[0] << " ";
 
-	// Printing out the vec when filtered with FilterGeneric.
-	std::cout << "Filter Generic: " << std::endl;
-	std::vector<int> filterGeneric = ptrFilterG->filter( vec );
+	//std::cout << "Reduce GCD: " << std::endl;
+	std::vector<int> reduceGC = ptrReduceGCD->reduce( filterFor2D, newVec );
 
-	for (std::vector<int>::const_iterator i = filterGeneric.begin(); i != filterGeneric.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
-
-	// Printing out the vec when filtered with FilterOdd.
-	std::cout << "Filter Odd: " << std::endl;
-	std::vector<int> filterOdd = ptrFilterO->filter( vec );
-
-	for (std::vector<int>::const_iterator i = filterOdd.begin(); i != filterOdd.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
-
-	// Printing out the vec when filtered with FilterNonPositive.
-	std::cout << "Filter Non Positive: " << std::endl;
-	std::vector<int> filterNonPositive = ptrFilterNP->filter( vec );
-
-	for (std::vector<int>::const_iterator i = filterNonPositive.begin(); i != filterNonPositive.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
-
-	// Printing out the vec when filtered with FilterForTwoDigitPositive.
-	std::cout << "Filter For Two Digit Positive: " << std::endl;
-	std::vector<int> filterFor2D = ptrFilter2D->filter( vec );
-
-	for (std::vector<int>::const_iterator i = filterFor2D.begin(); i != filterFor2D.end(); ++i)
-    {
-    	std::cout << *i << ' ';
-	}
-	std::cout << std::endl;
-
-	// Printing out the vec when reduced with ReduceMinimum.
-	std::cout << "Reduce Minimum: " << std::endl;
-	std::vector<int> reduceMin = ptrReduceM->reduce( vec, newVec );
-
-	std::cout << reduceMin[0] << std::endl;
-
-	// Printing out the vec when reduced with ReduceGCD.
-	std::cout << "Reduce GCD: " << std::endl;
-	std::vector<int> reduceGC = ptrReduceGCD->reduce( vec, newVec );
-
+	// OUTPUT 2:
 	std::cout << reduceGC[0] << std::endl;
 
 	return 0;

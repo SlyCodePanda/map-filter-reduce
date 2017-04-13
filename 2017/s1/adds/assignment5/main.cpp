@@ -59,6 +59,10 @@ int main()
 	ReduceMinimum reduceM;
 	ReduceMinimum *ptrReduceM = &reduceM;
 
+	// Creates a pointer of the type ReduceGCD.
+	ReduceGCD reduceGCD;
+	ReduceGCD *ptrReduceGCD = &reduceGCD;
+
 	// Printing out the Generic Map vector.
 	std::cout << "Generic Map: " << std::endl;
 	std::vector<int> genericVector = ptrMapG->map( vec );
@@ -144,6 +148,13 @@ int main()
 	std::vector<int> reduceMin = ptrReduceM->reduce( vec, newVec );
 
 	std::cout << reduceMin[0] << std::endl;
+
+	// Printing out the vec when reduced with ReduceGCD.
+	std::cout << "Reduce GCD: " << std::endl;
+	std::vector<int> reduceGC = ptrReduceGCD->reduce( vec, newVec );
+
+	std::cout << reduceGC[0] << std::endl;
+
 	return 0;
 
 };

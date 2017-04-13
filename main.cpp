@@ -11,9 +11,19 @@
 int main()
 {
 
+
 	// A vector with 20 ints.
 	std::vector<int> vec;
-	vec = { 6, -11, 53, -16, 73, 128, 105, 104, -71, -179, 102, 12, 21, -145, -99, 199, -156, -186, 43, -189 };
+	int input;
+	//vec = { 6, -11, 53, -16, 73, 128, 105, 104, -71, -179, 102, 12, 21, -145, -99, 199, -156, -186, 43, -189 };
+
+	// Takes input from user of 20 integers that then inputs them into a vector of ints.
+	std::cin >> input;
+
+	while ( ( std::cin >> input ) && vec.size() <= 20 )
+	{
+		vec.push_back( input );
+	}
 
 	// New vector that is passed for the ReduceGeneric class and derived clases.
 	std::vector<int> newVec(1);

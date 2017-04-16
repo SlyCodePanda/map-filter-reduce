@@ -4,6 +4,8 @@
 #include <stdio.h>      /* printf */
 #include <stdlib.h>     /* abs */
 
+#include <sstream>
+
 #include "MapGeneric.h"
 #include "FilterGeneric.h"
 #include "ReduceGeneric.h"
@@ -11,23 +13,26 @@
 int main()
 {
 
-
-	// A vector with 20 ints.
+	// The user inputs a string of numbers (e.g. "6, 4, -2, 88, ..etc") and those integers are then put into a vector named 'vec'.
 	std::vector<int> vec;
-	int input;
-	//vec = { 6, -11, 53, -16, 73, 128, 105, 104, -71, -179, 102, 12, 21, -145, -99, 199, -156, -186, 43, -189 };
 
-	// Takes input from user of 20 integers that then inputs them into a vector of ints.
-	std::cin >> input;
+	std::string line;
+   	if ( getline(std::cin, line) )
+   	{
+    	std::istringstream str(line);
 
-	while ( ( std::cin >> input ) && vec.size() < 18 )
-	{
-		vec.push_back( input );
-	}
+      	int value;
+      	str >> value;
+      	vec.push_back( value );
+      	char separator;
+      	while ( str >> separator >> value ) 
+      	{
+         	vec.push_back( value );
+      	}
+   	}
 
 	// New vector that is passed for the ReduceGeneric class and derived clases.
 	std::vector<int> newVec(1);
-
 
 	// Creates a pointer of the type MapGeneric.
 	MapGeneric mapG;
@@ -74,22 +79,19 @@ int main()
 	ReduceGCD *ptrReduceGCD = &reduceGCD;
 
 	// Converting the original list to L' = [3|x1|, 3|x2|, ..., 3|xn|] using map.
-	//std::cout << "Triple Map: " << std::endl;
 	std::vector<int> tripleVector = ptrMapT->map( vec );
 
 	//std::cout << "Map Absolute: " << std::endl;
 	std::vector<int> absoluteVector = ptrMapA->map( tripleVector );
 
 	// From L', selects all the positive two digit integers that are also odd by using filter. Resulting in L".
-	//std::cout << "Filter Odd: " << std::endl;
 	std::vector<int> filterOdd = ptrFilterO->filter( absoluteVector );
 
 	//std::cout << "Filter For Two Digit Positive: " << std::endl;
 	std::vector<int> filterFor2D = ptrFilter2D->filter( filterOdd );
 
 	// Computes the minimum value and the GCD of L" using reduce. Outputting the results, seperated by space.
-	//std::cout << "Reduce Minimum: " << std::endl;
-	std::vector<int> reduceMin = ptrReduceM->reduce( filterFor2D, newVec );
+	std::vector<int> reduceMin = ptrReduceM->reduce( filterFor2D, newVec ); // <<<<<
 
 	// OUTPUT 1:
 	std::cout << reduceMin[0] << " ";

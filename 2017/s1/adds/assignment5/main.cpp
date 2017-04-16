@@ -34,33 +34,17 @@ int main()
 	// New vector that is passed for the ReduceGeneric class and derived clases.
 	std::vector<int> newVec(1);
 
-	// Creates a pointer of the type MapGeneric.
-	MapGeneric mapG;
-	MapGeneric *ptrMapG = &mapG;
-
 	// Creates a pointer of the type MapTriple.
 	MapTriple mapT;
 	MapTriple *ptrMapT = &mapT;
-
-	// Creates a pointer of the type MapSquare.
-	MapSquare mapS;
-	MapSquare *ptrMapS = &mapS;
 
 	// Creates a pointer of the type MapAbsoluteValue.
 	MapAbsoluteValue mapA;
 	MapAbsoluteValue *ptrMapA = &mapA;
 
-	// Creates a pointer of the type FilterGeneric.
-	FilterGeneric filterG;
-	FilterGeneric *ptrFilterG = &filterG;
-
 	// Creates a pointer of the type FilterOdd.
 	FilterOdd filterO;
 	FilterOdd *ptrFilterO = &filterO;
-
-	// Creates a pointer of the type FilterNonPositive.
-	FilterNonPositive filterNP;
-	FilterNonPositive *ptrFilterNP = &filterNP;
 
 	// Creates a pointer of the type FilterForTwoDigitPositive.
 	FilterForTwoDigitPositive filter2D;

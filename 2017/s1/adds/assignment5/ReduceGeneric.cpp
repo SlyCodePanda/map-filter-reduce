@@ -15,7 +15,6 @@ ReduceGeneric::ReduceGeneric()
 // of this function only ever returns int x.
 int ReduceGeneric::binaryOperator( int x, int y )
 {
-	std::cout << "generic binaryOperator: " << x << std::endl;
 	return x;
 }
 
@@ -98,6 +97,10 @@ int ReduceMinimum::binaryOperator( int first, int last )
 	{
 		return last;
 	}
+	else
+	{
+		return 0;
+	}
 
 }
 
@@ -130,8 +133,10 @@ std::vector<int>ReduceGCD::reduce( std::vector<int> vec, std::vector<int> newVec
 		int c = lcm( a, lcm( vec.at(0), vec.at(1) ) );
 		newVec[0] = c;
 		return newVec;
-		//vec.erase( vec.begin()+0 );
-		//return reduce( newVec, vec );
+	}
+	else
+	{
+		return newVec;
 	}
 
 }
@@ -147,7 +152,6 @@ int ReduceGCD::binaryOperator( int first, int last )
 	{
 		return binaryOperator( last, first % last );
 	}
-	//return abs(last == 0 ? first : binaryOperator( last, first % last ));
 }
 
 // This function calculates the lowest common denominator between two numbers.
@@ -161,7 +165,6 @@ int ReduceGCD::lcm( int first, int last )
 	{
 		return abs( binaryOperator( last, first % last ) );
 	}
-	//return first * last / binaryOperator( first, last );
 }
 
 // ReduceGCD class destructor.

@@ -25,21 +25,9 @@ std::vector<int> MapGeneric::map( std::vector<int> vec )
 {
 	std::vector<int> newVec;
 	int i;
-/*
-	// Recursive version of for-loop. perhaps try returning the v vector into the map function with a size of -1.
-	// Shortening the size given much like in the last assignment for the "Reverse" recursion loop...
-	if( n.size() <= newVec.size() )
-	{
-		return newVec;
-	}
-	else
-	{
-		newVec.push_back( f(n.at(i)));
-		i++;
-		map( n );
-	}
-*/
-	for( i = 0; i < vec.size(); i++ )
+	int vecSize = vec.size();
+
+	for( i = 0; i < vecSize; i++ )
 	{
 		newVec.push_back( f(vec.at(i)) );
 	}

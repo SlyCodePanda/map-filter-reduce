@@ -50,10 +50,6 @@ int main()
 	FilterForTwoDigitPositive filter2D;
 	FilterForTwoDigitPositive *ptrFilter2D = &filter2D;
 
-	// Creates a pointer of the type ReduceGeneric.
-	ReduceGeneric reduceG;
-	ReduceGeneric *ptrReduceG = &reduceG;
-
 	// Creates a pointer of the type ReduceMinimum.
 	ReduceMinimum reduceM;
 	ReduceMinimum *ptrReduceM = &reduceM;

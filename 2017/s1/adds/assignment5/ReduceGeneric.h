@@ -28,7 +28,6 @@ class ReduceMinimum : public ReduceGeneric
 		~ReduceMinimum();
 
 };
-// NEED TO CHANGE THE REDUCE FUNCTION IN BASE CLASS TO PURE VIRTUAL AND GIVE SEPERATE CASES FOR GCD AND MINIMUM.
 class ReduceGCD : public ReduceGeneric
 {
 
